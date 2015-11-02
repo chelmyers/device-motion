@@ -1,32 +1,40 @@
-function init() {
-      //Find our div containers in the DOM
-      var dataContainerOrientation = document.getElementById('dataContainerOrientation');
-      var dataContainerMotion = document.getElementById('dataContainerMotion');
+if (window.DeviceOrientationEvent) {
+ console.log("DeviceOrientation is supported");
+}
 
-      //Check for support for DeviceOrientation event
-      if(window.DeviceOrientationEvent) {
-        window.addEventListener('deviceorientation', function(event) {
-                var alpha = event.alpha;
-                var beta = event.beta;
-                var gamma = event.gamma;
+if (window.DeviceMotionEvent) {
+  window.addEventListener('devicemotion', deviceMotionHandler, false);
 
-                if(alpha!=null || beta!=null || gamma!=null)
-                  dataContainerOrientation.innerHTML = 'alpha: ' + alpha + '<br/>beta: ' + beta + '<br />gamma: ' + gamma;
-              }, false);
-      }
+} else {
+  document.getElementById("dmEvent").innerHTML = "Not supported."
+}
 
-      // Check for support for DeviceMotion events
-      if(window.DeviceMotionEvent) {
-      window.addEventListener('devicemotion', function(event) {
-                var x = event.accelerationIncludingGravity.x;
-                var y = event.accelerationIncludingGravity.y;
-                var z = event.accelerationIncludingGravity.z;
-                var r = event.rotationRate;
-                var html = 'Acceleration:<br />';
-                html += 'x: ' + x +'<br />y: ' + y + '<br/>z: ' + z+ '<br />';
-                html += 'Rotation rate:<br />';
-                if(r!=null) html += 'alpha: ' + r.alpha +'<br />beta: ' + r.beta + '<br/>gamma: ' + r.gamma + '<br />';
-                dataContainerMotion.innerHTML = html;
-              });
-      }
-    }   
+function deviceMotionHandler(eventData) {
+  console.log("moved");
+  var info, xyz = "[X, Y, Z]";
+
+  // Grab the acceleration from the results
+  var acceleration = eventData.acceleration;
+  info = xyz.replace("X", acceleration.x);
+  info = info.replace("Y", acceleration.y);
+  info = info.replace("Z", acceleration.z);
+  document.getElementById("moAccel").innerHTML = info;
+
+  // Grab the acceleration including gravity from the results
+  acceleration = eventData.accelerationIncludingGravity;
+  info = xyz.replace("X", acceleration.x);
+  info = info.replace("Y", acceleration.y);
+  info = info.replace("Z", acceleration.z);
+  document.getElementById("moAccelGrav").innerHTML = info;
+
+  // Grab the rotation rate from the results
+  var rotation = eventData.rotationRate;
+  info = xyz.replace("X", rotation.alpha);
+  info = info.replace("Y", rotation.beta);
+  info = info.replace("Z", rotation.gamma);
+  document.getElementById("moRotation").innerHTML = info;
+
+  // // Grab the refresh interval from the results
+  info = eventData.interval;
+  document.getElementById("moInterval").innerHTML = info;
+}

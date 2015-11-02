@@ -17,13 +17,31 @@
   <p><b>Rotation Beta: </b><span class="beta"></span></p>
   <p><b>Rotation Gamma: </b><span class="gamma"></span></p> -->
 
-  <div id="dataContainerOrientation">
-    No device orientation data
-  </div>
-  <div id="dataContainerMotion">
-    No device motion data
-  </div>
-
+  <div class="main">
+  <h2>Device Motion</h2>
+  <table>
+    <tr>
+      <td>Event Supported</td>
+      <td id="dmEvent"></td>
+    </tr>
+    <tr>
+      <td>acceleration</td>
+      <td id="moAccel"></td>
+    </tr>
+    <tr>
+      <td>accelerationIncludingGravity</td>
+      <td id="moAccelGrav"></td>
+    </tr>
+    <tr>
+      <td>rotationRate</td>
+      <td id="moRotation"></td>
+    </tr>
+    <tr>
+      <td>interval</td>
+      <td id="moInterval"></td>
+    </tr>
+  </table>
+</div>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script type="text/javascript" src="client.js"></script>
 
