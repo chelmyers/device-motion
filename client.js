@@ -6,7 +6,7 @@ if (window.DeviceMotionEvent) {
   window.addEventListener('devicemotion', deviceMotionHandler, false);
 
 } else {
-  document.getElementByClass("body")[0].innerHTML = "Device Motion Not Supported."
+  document.getElementsByClassName("body")[0].innerHTML = "Device Motion Not Supported."
 }
 
 function deviceMotionHandler(eventData) {
@@ -15,17 +15,17 @@ function deviceMotionHandler(eventData) {
   var accelerationGravity = eventData.accelerationIncludingGravity;
   var rotation = eventData.rotationRate;
 
-  document.getElementByClass("acX")[0].innerHTML = acceleration.x;
-  document.getElementByClass("acY")[0].innerHTML = acceleration.y;
-  document.getElementByClass("acZ")[0].innerHTML = acceleration.z;
+  document.getElementsByClassName("acX")[0].innerHTML = acceleration.x;
+  document.getElementsByClassName("acY")[0].innerHTML = acceleration.y;
+  document.getElementsByClassName("acZ")[0].innerHTML = acceleration.z;
 
-  document.getElementByClass("acGX")[0].innerHTML = accelerationGravity.x;
-  document.getElementByClass("acGY")[0].innerHTML = accelerationGravity.y;
-  document.getElementByClass("acGZ")[0].innerHTML = accelerationGravity.z;
+  document.getElementsByClassName("acGX")[0].innerHTML = accelerationGravity.x;
+  document.getElementsByClassName("acGY")[0].innerHTML = accelerationGravity.y;
+  document.getElementsByClassName("acGZ")[0].innerHTML = accelerationGravity.z;
 
-  document.getElementByClass("alpha")[0].innerHTML = rotation.alpha;
-  document.getElementByClass("beta")[0].innerHTML = rotation.beta;
-  document.getElementByClass("gamma")[0].innerHTML = rotation.gamma;
+  document.getElementsByClassName("alpha")[0].innerHTML = rotation.alpha;
+  document.getElementsByClassName("beta")[0].innerHTML = rotation.beta;
+  document.getElementsByClassName("gamma")[0].innerHTML = rotation.gamma;
 
 
   // var info, xyz = "[X, Y, Z]";
