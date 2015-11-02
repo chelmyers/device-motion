@@ -15,17 +15,17 @@ function deviceMotionHandler(eventData) {
   var accelerationGravity = eventData.accelerationIncludingGravity;
   var rotation = eventData.rotationRate;
 
-  $('.acX').innerHTML = acceleration.x;
-  $('.acY').innerHTML = acceleration.y;
-  $('.acZ').innerHTML = acceleration.z;
+  document.getElementByClass("acX")[0].innerHTML = acceleration.x;
+  document.getElementByClass("acY")[0].innerHTML = acceleration.y;
+  document.getElementByClass("acZ")[0].innerHTML = acceleration.z;
 
-  $('.acGX').innerHTML = accelerationGravity.x;
-  $('.acGY').innerHTML = accelerationGravity.y;
-  $('.acGZ').innerHTML = accelerationGravity.z;
+  document.getElementByClass("acGX")[0].innerHTML = accelerationGravity.x;
+  document.getElementByClass("acGY")[0].innerHTML = accelerationGravity.y;
+  document.getElementByClass("acGZ")[0].innerHTML = accelerationGravity.z;
 
-  $('.alpha').innerHTML = rotation.alpha;
-  $('.beta').innerHTML = rotation.beta;
-  $('.gamma').innerHTML = rotation.gamma;
+  document.getElementByClass("alpha")[0].innerHTML = rotation.alpha;
+  document.getElementByClass("beta")[0].innerHTML = rotation.beta;
+  document.getElementByClass("gamma")[0].innerHTML = rotation.gamma;
 
 
   // var info, xyz = "[X, Y, Z]";
